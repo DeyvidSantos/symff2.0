@@ -1,1 +1,8 @@
-{% extends "base.html.twig"%}
+{% extends "base.html.twig"%} {% block title %} Sciety {% endblock %} {% block
+body %}
+<h1>
+  Coe caralho
+</h1>
+<a href="{{ path('app_register') }}" class="btn btn-primary">Register</a>
+<a href="{{ path('app_login') }}" class="btn btn-primary">Login</a>
+{% endblock %}
