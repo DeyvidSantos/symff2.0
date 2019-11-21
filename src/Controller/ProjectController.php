@@ -95,10 +95,11 @@ class ProjectController extends AbstractController
         $form = $this->createForm(ProjectType::class, $project);
         $form ->handleRequest($request);
 
-        if($form ->isSubmitted() && $form-> isValid){
+        if($form ->isSubmitted() && $form-> isValid()){
             try {
 $this->getDoctrine()->getManager()->flush();
 return $this->redirectToRoute('app_projects');
+//return $this->redirectToRoute('project_show', [ 'project' => $project.getId()]);
 
             }
             catch (\Exception $e){
@@ -108,6 +109,8 @@ return $this->redirectToRoute('app_projects');
 
         }
 
-        return $this->render('index.html.twig');
+        return $this->render('project/edit.html.twig', [
+           'form' => $form->createView()
+        ]);
     }
 }
