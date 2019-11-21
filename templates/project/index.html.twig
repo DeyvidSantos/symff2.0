@@ -11,7 +11,11 @@ block body %}
       <div class="card-body">
         <h5 class="card-title">{{ project.name }}</h5>
         <p class="card-text">{{ project.description }}</p>
-        <a href="#" class="card-link">Enter</a>
+        <a
+          href="{{ path('project_show', { project: project.id }) }}"
+          class="card-link"
+          >Enter</a
+        >
       </div>
     </div>
   </div>
